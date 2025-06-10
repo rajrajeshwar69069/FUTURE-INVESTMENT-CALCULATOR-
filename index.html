@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Future Investment Calculator</title>
+    <title>MR Future Money Calculator</title>
     <style>
         :root {
             --primary: #4a6fa5;
@@ -28,11 +28,118 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
 
+        /* MR Future Money Icon */
+        .mr-icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mr-icon-base {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mr-icon-inner {
+            width: 80%;
+            height: 80%;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .mr-icon-letter {
+            font-size: 50px;
+            font-weight: 800;
+            color: var(--primary);
+            position: relative;
+            z-index: 2;
+        }
+
+        .mr-icon-graph {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 30%;
+            display: flex;
+            align-items: flex-end;
+            z-index: 1;
+        }
+
+        .mr-icon-bar {
+            flex: 1;
+            background: linear-gradient(to top, var(--success), #a5d6a7);
+            margin: 0 2px;
+            border-radius: 3px 3px 0 0;
+            animation: growBars 1.5s ease-out forwards;
+        }
+
+        .mr-icon-bar:nth-child(1) { height: 30%; animation-delay: 0.1s; }
+        .mr-icon-bar:nth-child(2) { height: 50%; animation-delay: 0.2s; }
+        .mr-icon-bar:nth-child(3) { height: 70%; animation-delay: 0.3s; }
+        .mr-icon-bar:nth-child(4) { height: 90%; animation-delay: 0.4s; }
+        .mr-icon-bar:nth-child(5) { height: 100%; animation-delay: 0.5s; }
+
+        @keyframes growBars {
+            from { height: 0; }
+            to { height: var(--target-height); }
+        }
+
+        .mr-icon-coin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--warning), #ffd54f);
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .mr-icon-coin:nth-child(1) {
+            top: 15%;
+            left: 25%;
+            transform: rotate(15deg);
+        }
+
+        .mr-icon-coin:nth-child(2) {
+            top: 20%;
+            right: 20%;
+            transform: rotate(-10deg);
+            width: 16px;
+            height: 16px;
+        }
+
+        .mr-icon-coin:nth-child(3) {
+            bottom: 25%;
+            right: 30%;
+            transform: rotate(5deg);
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Calculator Styles */
         .calculator-container {
             background-color: white;
             border-radius: 15px;
@@ -213,27 +320,6 @@
             width: 15%;
         }
 
-        .summary-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        .summary-table th, .summary-table td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        .summary-table th {
-            color: var(--dark);
-            font-weight: 600;
-        }
-
-        .summary-table tr:last-child td {
-            border-bottom: none;
-        }
-
         @media (max-width: 768px) {
             .calculator-body {
                 flex-direction: column;
@@ -262,9 +348,29 @@
 	};
 </script>
 <script type="text/javascript" src="//www.highperformanceformat.com/aec799ff4dbc8d81b0c5c2be0620a26e/invoke.js"></script>
+    <!-- MR Future Money Icon -->
+    <div class="mr-icon">
+        <div class="mr-icon-base">
+            <div class="mr-icon-inner">
+                <div class="mr-icon-letter">MR</div>
+                <div class="mr-icon-graph">
+                    <div class="mr-icon-bar"></div>
+                    <div class="mr-icon-bar"></div>
+                    <div class="mr-icon-bar"></div>
+                    <div class="mr-icon-bar"></div>
+                    <div class="mr-icon-bar"></div>
+                </div>
+                <div class="mr-icon-coin"></div>
+                <div class="mr-icon-coin"></div>
+                <div class="mr-icon-coin"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculator Container -->
     <div class="calculator-container">
         <div class="calculator-header">
-            <h1>MR Future Investment Calculator</h1>
+            <h1>MR Future Money Calculator</h1>
             <p>Calculate how your investments will grow over time</p>
         </div>
 
@@ -469,8 +575,6 @@
             }
         });
     </script>
-
-    <!-- Ad Code -->
 <script async="async" data-cfasync="false" src="//pl26884191.profitableratecpm.com/6c5e7e3b30fdaf21bfcf86b8ca9340b4/invoke.js"></script>
 <div id="container-6c5e7e3b30fdaf21bfcf86b8ca9340b4"></div>
 </body>
